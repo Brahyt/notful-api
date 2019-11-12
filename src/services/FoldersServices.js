@@ -1,23 +1,29 @@
 const FoldersServices = {
   getAllFolders(db) {
-    return db('folders')
-      .select('*')
+    return db('folders').select('*');
   },
   insertFolder(db, folder) {
     return db('folders')
       .insert(folder)
       .returning('*')
-      .then(rows => rows[0])
+      .then(rows => rows[0]);
   },
-  getFolderById() {
-
+  getFolderById(db, id) {
+    return db('folders')
+      .select('*')
+      .where({id})
+      .first();
   },
-  deleteFolder() {
-
+  deleteFolder(db, id) {
+    return db('folders')
+      .where({id})
+      .delete();
   },
-  updateFolder(){
-
-  }
+  updateFolder(db, id, updatedFolderFields) {
+    return db('folders')
+      .where({id})
+      .update(updatedFolderFields);
+  },
 };
 
 module.exports = FoldersServices;

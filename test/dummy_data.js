@@ -21,15 +21,15 @@ function MakeDummyNotes() {
     },
     {
       note_name: "note two",
-      note_content: "note one content",
+      note_content: "note two content",
       folder_id: 2
     },
     {
       note_name: "note three",
-      note_content: "note one content",
+      note_content: "note three content",
       folder_id: 3
     },
-  ]
+  ];
 }
 
 module.exports = {

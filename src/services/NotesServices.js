@@ -3,17 +3,28 @@ const NotesServices = {
     return db('notes')
       .select('*');
   },
-  insertNote(db) {
+  insertNote(db, note) {
+    return db('notes')
+      .insert(note)
+      .returning('*')
+      .then(rows => rows[0])
+  },
+  getNoteById(db, id) {
+    return db('notes')
+      .select('*')
+      .where({id})
+      .first()
 
   },
-  getNoteById() {
-
+  deleteNote(db, id) {
+    return db('notes')
+      .where({id})
+      .delete()
   },
-  deleteNote() {
-
-  },
-  updateNote(){
-
+  updateNote(db, id, updatedNoteFields){
+    return db('notes')
+      .where({id})
+      .update(updatedNoteFields)
   }
 };
 
