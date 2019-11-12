@@ -5,6 +5,6 @@ const notesRoute = require('./notes-route');
 
 route
   .use('/folders', foldersRoute)
-  .use('/notes', notesRoute)
+  .use('/notes', notesRoute);
 
 module.exports = route;
