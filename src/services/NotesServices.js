@@ -1,8 +1,9 @@
 const NotesServices = {
-  getAllNotes() {
-
+  getAllNotes(db) {
+    return db('notes')
+      .select('*');
   },
-  insertNote() {
+  insertNote(db) {
 
   },
   getNoteById() {
